@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration | Multi-Page App</title>
+  <meta name="description" content="Capture user information through a validated registration form and manage submitted records.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" aria-label="Home page">
+        <span class="nav-brand-icon">U</span>
+        <span>UserPortal</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html" class="nav-link active" aria-current="page">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10 2a4 4 0 00-4 4v1H5a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2v-7a2 2 0 00-2-2h-1V6a4 4 0 00-4-4zm-2 5V6a2 2 0 114 0v1H8z"/>
+              </svg>
+              <span>Register</span>
+            </a>
+          </li>
+          <li>
+            <a href="display.html" class="nav-link">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+              <span>Latest Submission</span>
+            </a>
+          </li>
+          <li>
+            <a href="users.html" class="nav-link">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+              </svg>
+              <span>All Users</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-wrapper" id="main-content">
+    <div class="page-container">
+      
+      <div class="page-header">
+        <h1 class="page-title">User Registration</h1>
+        <p class="page-subtitle">Fill out the form below to register. Fields marked with <span class="required-star">*</span> are mandatory.</p>
+      </div>
+
+      <div class="card">
+        <form id="registrationForm" novalidate autocomplete="on">
+          <div class="form-grid">
+            
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="fullName" class="form-label">
+                Full Name <span class="required-star" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                class="form-control"
+                placeholder="e.g. Rahul Sharma"
+                required
+                minlength="3"
+                pattern="^[A-Za-z\s]{3,}$"
+                aria-describedby="error-fullName hint-fullName"
+                autocomplete="name"
+              >
+              <div class="form-hint" id="hint-fullName">Only letters and spaces (min. 3 characters)</div>
+              <div class="error-message" id="error-fullName" aria-live="polite"></div>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group" role="group" aria-labelledby="gender-legend">
+              <span id="gender-legend" class="form-label">
+                Gender <span class="required-star" aria-hidden="true">*</span>
+              </span>
+              <div class="radio-group" id="genderGroup">
+                <label class="radio-label">
+                  <input type="radio" name="gender" value="Male" id="genderMale" required>
+                  <span>Male</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="gender" value="Female" id="genderFemale">
+                  <span>Female</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="gender" value="Other" id="genderOther">
+                  <span>Other</span>
+                </label>
+              </div>
+              <div class="error-message" id="error-gender" aria-live="polite"></div>
+            </div>
+
+            <!-- Two Column Row: Mobile & Email -->
+            <div class="form-grid form-grid-2col">
+              <!-- Mobile Number -->
+              <div class="form-group">
+                <label for="mobile" class="form-label">
+                  Mobile Number <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="mobile"
+                  name="mobile"
+                  class="form-control"
+                  placeholder="e.g. 9876543210"
+                  required
+                  maxlength="10"
+                  pattern="^[6-9]\d{9}$"
+                  aria-describedby="error-mobile hint-mobile"
+                  autocomplete="tel"
+                >
+                <div class="form-hint" id="hint-mobile">10 digits starting with 6, 7, 8, or 9</div>
+                <div class="error-message" id="error-mobile" aria-live="polite"></div>
+              </div>
+
+              <!-- Email ID -->
+              <div class="form-group">
+                <label for="email" class="form-label">
+                  Email ID <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="e.g. rahul.sharma@example.com"
+                  required
+                  aria-describedby="error-email"
+                  autocomplete="email"
+                >
+                <div class="error-message" id="error-email" aria-live="polite"></div>
+              </div>
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+              <label for="city" class="form-label">
+                City <span class="required-star" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                class="form-control"
+                placeholder="e.g. Mumbai"
+                required
+                aria-describedby="error-city"
+                autocomplete="address-level2"
+              >
+              <div class="error-message" id="error-city" aria-live="polite"></div>
+            </div>
+
+            <!-- Two Column Row: State & Country -->
+            <div class="form-grid form-grid-2col">
+              <!-- State -->
+              <div class="form-group">
+                <label for="state" class="form-label">
+                  State <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <select id="state" name="state" class="form-control" required aria-describedby="error-state">
+                  <option value="" disabled selected>-- Select State / UT --</option>
+                  <optgroup label="States">
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                  </optgroup>
+                  <optgroup label="Union Territories">
+                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Dadra & Nagar Haveli and Daman & Diu">Dadra & Nagar Haveli and Daman & Diu</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Ladakh">Ladakh</option>
+                    <option value="Lakshadweep">Lakshadweep</option>
+                    <option value="Puducherry">Puducherry</option>
+                  </optgroup>
+                </select>
+                <div class="error-message" id="error-state" aria-live="polite"></div>
+              </div>
+
+              <!-- Country -->
+              <div class="form-group">
+                <label for="country" class="form-label">
+                  Country <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <select id="country" name="country" class="form-control" required aria-describedby="error-country">
+                  <option value="India" selected>India</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="United States">United States</option>
+                </select>
+                <div class="error-message" id="error-country" aria-live="polite"></div>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+              <button type="submit" id="submitBtn" class="btn btn-primary">
+                <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Submit Registration</span>
+              </button>
+              <button type="reset" id="resetBtn" class="btn btn-secondary">
+                <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/>
+                </svg>
+                <span>Reset Form</span>
+              </button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>&copy; 2026 UserPortal &bull; Built with Plain HTML, Vanilla CSS &amp; JavaScript</p>
+  </footer>
+
+  <script src="js/form.js"></script>
+</body>
+</html>

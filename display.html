@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Submission | UserPortal</title>
+  <meta name="description" content="View the details of the most recently submitted user registration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" aria-label="Home page">
+        <span class="nav-brand-icon">U</span>
+        <span>UserPortal</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html" class="nav-link">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10 2a4 4 0 00-4 4v1H5a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2v-7a2 2 0 00-2-2h-1V6a4 4 0 00-4-4zm-2 5V6a2 2 0 114 0v1H8z"/>
+              </svg>
+              <span>Register</span>
+            </a>
+          </li>
+          <li>
+            <a href="display.html" class="nav-link active" aria-current="page">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+              <span>Latest Submission</span>
+            </a>
+          </li>
+          <li>
+            <a href="users.html" class="nav-link">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+              </svg>
+              <span>All Users</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-wrapper" id="main-content">
+    <div class="page-container">
+
+      <div class="page-header">
+        <h1 class="page-title">Latest Submission</h1>
+        <p class="page-subtitle">Details of the most recently registered user</p>
+      </div>
+
+      <!-- Container where js/display.js will inject the card or empty state -->
+      <div id="displayContainer">
+        <!-- Injected via JavaScript -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>&copy; 2026 UserPortal &bull; Built with Plain HTML, Vanilla CSS &amp; JavaScript</p>
+  </footer>
+
+  <script src="js/display.js"></script>
+</body>
+</html>
